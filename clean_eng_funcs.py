@@ -54,6 +54,13 @@ def _replace_words(text):
     text = text.replace('theCommissionerof', 'the Commissioner of')
     return text
 
+def _remove_repeats(sentences):
+    original = []
+    for sentence in sentences:
+        if sentence not in original:
+            original.append(sentence)
+    return original
+
 def _preprocess_sent(texts, stop_words):
     texts_out = []
     for text in texts:
@@ -108,6 +115,7 @@ def preprocess_for_bow(df, stop_words, nlp):
     df['body'] = df['body'].map(_replace_words)
     df['headline'] = df['headline'].map(_replace_words)
     df['sentences'] = df['body'].map(sent_tokenize)
+    df['sentences'] = df['sentences'].map(_remove_repeats)
     df['sentence_tokens'] = df['sentences'].map(lambda x: _preprocess_sent(x, stop_words))
     df['word_tokens'] = df['sentence_tokens'].map(lambda x: [ item for l in x for item in l ])
     df['headline_tokens'] = df['headline'].map(lambda x: _preprocess_body(x, stop_words))
