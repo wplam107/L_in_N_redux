@@ -133,3 +133,29 @@ def preprocess_for_bow(df, stop_words, nlp):
     df['headline_tokens'] = df['headline_tokens'].map(lambda x: _lemmatization(x, nlp))
 
     return df
+
+def preprocess_for_we(df, stop_words, nlp):
+    """
+    Standardize certain phrases in text bodies, convert bodies to lists of sentences,
+    create word tokens in sentences
+
+    Parameters
+    ----------
+    df : DataFrame
+        DataFrame contains a body of text
+
+    Returns
+    -------
+    df : DataFrame
+        DataFrame returned has additional sentences, sentence tokens, word tokens columns
+    """
+    # Create new tokenized features
+    df['body'] = df['body'].map(_replace_words)
+    df['headline'] = df['headline'].map(_replace_words)
+    df['sentences'] = df['body'].map(sent_tokenize)
+    df['sentences'] = df['sentences'].map(_remove_repeats)
+    df['sentence_tokens'] = df['sentences'].map(lambda x: _preprocess_sent(x, stop_words))
+    df['word_tokens'] = df['sentence_tokens'].map(lambda x: [ item for l in x for item in l ])
+    df['headline_tokens'] = df['headline'].map(lambda x: _preprocess_body(x, stop_words))
+
+    return df
