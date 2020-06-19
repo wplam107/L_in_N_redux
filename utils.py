@@ -36,7 +36,7 @@ def _w2v(words, dictionary):
 
 def process_text(text):
     tokens, lemmed_tokens = _preprocess(text)
-    topics = _topics_in_doc(lemmed_tokens)
+    topics = _topics_in_doc(lemmed_tokens) # In format ['protest', 'political', 'economic']
     word_vec = _w2v(tokens, glove)
     return topics, word_vec
 
