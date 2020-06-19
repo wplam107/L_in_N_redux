@@ -1,7 +1,8 @@
-import numpy as numpy
+import numpy as np
 import pandas as pd
 import pickle
 import gensim
+import spacy
 from nltk.corpus import stopwords
 
 stop_words = stopwords.words('english')
@@ -11,7 +12,7 @@ mallet = pickle.load(open('models/mallet.p', 'rb'))
 id2word = pickle.load(open('models/id2word.p', 'rb'))
 glove = pickle.load(open('models/glove.p', 'rb'))
 
-def _preprocess_body(text, stop_words):
+def _preprocess_body(text, stop_words=stop_words):
     simple_text = gensim.utils.simple_preprocess(text)
     text_out = [ word for word in simple_text if word not in stop_words ]
     return text_out
@@ -39,7 +40,7 @@ def process_text(text):
     word_vec = _w2v(tokens, glove)
     return topics, word_vec
 
-def predict_source(word_vec, model):
+def predict_source(word_vec, model=xgb_model):
     vec_df = pd.DataFrame(word_vec).T
     probs = model.predict_proba(vec_df) # In format ['ABC', 'CCTV', 'CNN', 'Reuters']
     return probs
