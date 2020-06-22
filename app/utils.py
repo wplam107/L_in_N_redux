@@ -3,6 +3,7 @@ import pandas as pd
 import pickle
 import gensim
 import nltk
+import xgboost
 from nltk.stem import WordNetLemmatizer 
 
 nltk.download('stopwords')
@@ -13,13 +14,14 @@ xgb_model = pickle.load(open('models/xgb_model.p', 'rb'))
 mallet = pickle.load(open('models/mallet.p', 'rb'))
 id2word = pickle.load(open('models/id2word.p', 'rb'))
 glove = pickle.load(open('models/glove.p', 'rb'))
+lemmatizer = WordNetLemmatizer()
 
 def _preprocess_body(text, stop_words=stop_words):
     simple_text = gensim.utils.simple_preprocess(text)
     text_out = [ word for word in simple_text if word not in stop_words ]
     return text_out
 
-def _lemmatization(text, lemmatizer):
+def _lemmatization(text, lemmatizer=lemmatizer):
     return [ lemmatizer.lemmatize(token) for token in text ]
 
 def _preprocess(text, stop_words=stop_words):
