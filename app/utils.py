@@ -2,8 +2,11 @@ import numpy as np
 import pandas as pd
 import pickle
 import gensim
-from nltk.corpus import stopwords
+import nltk
 from nltk.stem import WordNetLemmatizer 
+
+nltk.download('stopwords')
+from nltk.corpus import stopwords
 
 stop_words = stopwords.words('english')
 xgb_model = pickle.load(open('models/xgb_model.p', 'rb'))
@@ -19,7 +22,7 @@ def _preprocess_body(text, stop_words=stop_words):
 def _lemmatization(text, lemmatizer):
     return [ lemmatizer.lemmatize(token) for token in text ]
 
-def _preprocess(text, stop_words=stop_words, nlp=nlp):
+def _preprocess(text, stop_words=stop_words):
     tokens = _preprocess_body(text)
     lemmed_tokens = _lemmatization(tokens)
     return tokens, lemmed_tokens

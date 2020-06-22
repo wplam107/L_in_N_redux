@@ -97,3 +97,4 @@ def update_output(n_clicks, value, input1):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
+    # app.run(host='0.0.0.0', port=80, debug=True, threaded=True)
