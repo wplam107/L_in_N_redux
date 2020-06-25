@@ -19,9 +19,15 @@ options = means.index
 
 app.layout = html.Div([
     html.H1(children='News Article Classifier', style={'textAlign': 'center'},),
-    dcc.Input(id='input-1-state', type='text', value=None),
+    html.Div(children='''
+    Paste text of an article from ABC (Australia), CCTV, CNN, or Reuters on the Hong Kong Protests.  
+    Probability of the source will be predicted using an XGBoost classifier trained on the mean word vector of the article 
+    and topic distribution (protest topic, political topic, economic topic) will be returned using an LDA Mallet model.  
+    The article topic distribution is compared to the mean topic distribution of sources (selectable).
+    '''),
+    dcc.Textarea(id="input-1-state", placeholder="Paste article text here", rows="10", style={'width': "100%"}), 
     html.Button(id='submit-button-state', children='Submit'),
-    html.Div(id='article-value', style={'display': 'none'}),
+    html.Br([]), html.Br([]),
     html.Div(dcc.Dropdown(id='radars', options=[ {'label': i, 'value': i} for i in options ], value='ABC')),
     dcc.Graph(id='probs', style={"width": "80%", "display": "inline-block"}),
     dcc.Graph(id='radar-chart', style={"width": "80%", "display": "inline-block"}),
@@ -43,7 +49,39 @@ app.layout = html.Div([
     )
 def update_output(n_clicks, value, input1):
     if n_clicks is None:
-        raise PreventUpdate
+        # raise PreventUpdate
+        categories = list(means.columns) + list([means.columns[0]])
+        r = means.loc[means.index == value].values.flatten().tolist()
+        r.append(r[0])
+        fig = go.Figure()
+        fig.add_trace(
+            go.Scatterpolar(
+                name=f'{value}',
+                r=r,
+                theta=categories,
+                fill='toself',
+            )
+        )
+        fig.update_layout(
+            title=f'Article Composition and Mean {value} Article Composition',
+            polar=dict(
+                radialaxis=dict(
+                    angle=180,
+                    tickangle=-180,
+                    visible=True,
+                    range=[0, 0.5]
+                )
+            ),
+        )
+
+        fig2 = go.Figure()
+        sources = ['ABC', 'CCTV', 'CNN', 'Reuters']
+        fig2.add_trace(go.Bar(x=[0,0,0,0], y=sources, text=None, orientation='h'))
+        fig2.update_layout(
+            title='Probability of Source',
+        )
+
+        return fig, fig2
 
     else:
         categories = list(means.columns) + list([means.columns[0]])
