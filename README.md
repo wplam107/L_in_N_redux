@@ -1,16 +1,16 @@
 # The Language in News Rework
 
-App: https://stormy-island-97029.herokuapp.com/
-Contributor: Wayne Lam
+App: https://stormy-island-97029.herokuapp.com/ \n
+Contributor: Wayne Lam \n
 
-Previous Project: https://github.com/wplam107/Final_Project
-Previous App/Dashboard: https://language-in-news.herokuapp.com/
+Previous Project: https://github.com/wplam107/Final_Project \n
+Previous App/Dashboard: https://language-in-news.herokuapp.com/ \n
 
 ## Background
 In mid 2019 through early 2020 a prominent subject in the news was the Hong Kong protests over various pieces of legislation proposed by the Hong Kong government.   In a previous project (https://github.com/wplam107/Final_Project) on news articles on the Hong Kong protests from 5 sources (ABC Australia, Reuters, CCTV, CNN, and the South China Morning Post) were clustered based on certain NLP features.  The features included the ratio of sentences tagged as a particular topic with LDA Mallet and the sentiment of a news article on the topics.
 
 ### Sample
-![sample observation]<img src="notebooks/imgs/sample_art.png" height="200" width="200")
+![sample observation]<img src="notebooks/imgs/sample_art.png" height="200" width="200">
 
 ### Problems
 - Sentiment of a topic in a news article was highly correlated with the number of sentences tagged as *that* topic in the news article.
