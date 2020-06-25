@@ -10,7 +10,7 @@ Previous App/Dashboard: https://language-in-news.herokuapp.com/
 In mid 2019 through early 2020 a prominent subject in the news was the Hong Kong protests over various pieces of legislation proposed by the Hong Kong government.   In a previous project (https://github.com/wplam107/Final_Project) on news articles on the Hong Kong protests from 5 sources (ABC Australia, Reuters, CCTV, CNN, and the South China Morning Post) were clustered based on certain NLP features.  The features included the ratio of sentences tagged as a particular topic with LDA Mallet and the sentiment of a news article on the topics.
 
 ### Sample
-![sample observation](notebooks/imgs/sample_art.png =200x200)
+![sample observation]<img src="notebooks/imgs/sample_art.png" height="200" width="200")
 
 ### Problems
 - Sentiment of a topic in a news article was highly correlated with the number of sentences tagged as *that* topic in the news article.
