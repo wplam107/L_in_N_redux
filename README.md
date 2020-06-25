@@ -1,10 +1,12 @@
 # The Language in News Rework
 
-App: https://stormy-island-97029.herokuapp.com/ \n
-Contributor: Wayne Lam \n
+App: https://stormy-island-97029.herokuapp.com/
 
-Previous Project: https://github.com/wplam107/Final_Project \n
-Previous App/Dashboard: https://language-in-news.herokuapp.com/ \n
+Contributor: Wayne Lam
+
+Previous Project: https://github.com/wplam107/Final_Project
+
+Previous App/Dashboard: https://language-in-news.herokuapp.com/
 
 ## Background
 In mid 2019 through early 2020 a prominent subject in the news was the Hong Kong protests over various pieces of legislation proposed by the Hong Kong government.   In a previous project (https://github.com/wplam107/Final_Project) on news articles on the Hong Kong protests from 5 sources (ABC Australia, Reuters, CCTV, CNN, and the South China Morning Post) were clustered based on certain NLP features.  The features included the ratio of sentences tagged as a particular topic with LDA Mallet and the sentiment of a news article on the topics.
