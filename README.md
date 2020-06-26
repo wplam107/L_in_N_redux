@@ -20,7 +20,7 @@ An XGBoost classifier model was trained on 799 news articles from ABC (Australia
 
 <img src="notebooks/imgs/con_mat.png" height="200" width="275">
 
-As illustrated, the classifier was far more accurate in correctly predicting news articles from Reuters (dominant class) and CCTV.  It is quite possible that the language in Reuters, CNN, and ABC were too similar (relative to CCTV) to differentiate.
+As illustrated, the classifier was far more accurate in correctly predicting news articles from Reuters (dominant class) and CCTV.  It is quite possible that the language in Reuters, CNN, and ABC were too similar (relative to CCTV) to easily differentiate.  Despite predicting poorly on CNN and ABC (relative to CCTV and Reuters), when not predicting the dominant class the model was more likely to predict the true label than the other labels.
 
 ## Background (Previous Project)
 In mid 2019 through early 2020 a prominent subject in the news was the Hong Kong protests over various pieces of legislation proposed by the Hong Kong government.   In a previous project (https://github.com/wplam107/Final_Project) on news articles on the Hong Kong protests from 5 sources (ABC Australia, Reuters, CCTV, CNN, and the South China Morning Post) were clustered based on several NLP features.  The features included the ratio of sentences tagged as a particular topic (choosing dominant topic) with LDA Mallet and the sentiment of a news article on the topics.
