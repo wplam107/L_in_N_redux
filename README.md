@@ -13,11 +13,14 @@ Previous App/Dashboard: https://language-in-news.herokuapp.com/
   - Create classifier based on topic features modeled from LDA Mallet and classifier based on mean word vector by using pretrained vectors from GloVe.
 - Reduce sources to only non-SCMP sources.
   - Reducing sample size and generalizability of insights while controlling for local vs. international news source variable.
+- To produce insights on whether certain news sources differ in language.
 
 ## Classifier Model
-An XGBoost classifier model was trained on 799 news articles from ABC, CCTV, CNN, and Reuters.  There was a class imbalance where Reuters accounted for over half of the observations.  Based on the mean word vector of a news article the model predition breakdowns are as follows:
+An XGBoost classifier model was trained on 799 news articles from ABC (Australia), CCTV, CNN, and Reuters.  There was a class imbalance where Reuters accounted for over half of the observations.  Based on the mean word vector of a news article the model predition breakdowns are as follows (normalized on true labels):
 
 <img src="notebooks/imgs/con_mat.png" height="200" width="275">
+
+As illustrated, the classifier was far more accurate in correctly predicting news articles from Reuters (dominant class) and CCTV.  It is quite possible that the language in Reuters, CNN, and ABC were too similar (relative to CCTV) to differentiate.
 
 ## Background (Previous Project)
 In mid 2019 through early 2020 a prominent subject in the news was the Hong Kong protests over various pieces of legislation proposed by the Hong Kong government.   In a previous project (https://github.com/wplam107/Final_Project) on news articles on the Hong Kong protests from 5 sources (ABC Australia, Reuters, CCTV, CNN, and the South China Morning Post) were clustered based on several NLP features.  The features included the ratio of sentences tagged as a particular topic (choosing dominant topic) with LDA Mallet and the sentiment of a news article on the topics.
