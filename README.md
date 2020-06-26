@@ -23,7 +23,7 @@ An XGBoost classifier model was trained on 799 news articles from ABC, CCTV, CNN
 In mid 2019 through early 2020 a prominent subject in the news was the Hong Kong protests over various pieces of legislation proposed by the Hong Kong government.   In a previous project (https://github.com/wplam107/Final_Project) on news articles on the Hong Kong protests from 5 sources (ABC Australia, Reuters, CCTV, CNN, and the South China Morning Post) were clustered based on several NLP features.  The features included the ratio of sentences tagged as a particular topic (choosing dominant topic) with LDA Mallet and the sentiment of a news article on the topics.
 
 ### Sample (Previous Project)
-<img src="notebooks/imgs/sample_art.png" height="200" width="150">
+<img src="notebooks/imgs/sample_art.png" height="200" width="200">
 
 ### Problems (Previous Project)
 - Sentiment of a topic in a news article was highly correlated with the number of sentences tagged as *that* topic in the news article.
