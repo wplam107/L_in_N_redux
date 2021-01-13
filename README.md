@@ -16,7 +16,7 @@ Previous App/Dashboard: https://language-in-news.herokuapp.com/
 - To produce insights on whether certain news sources differ in language.
 
 ## Classifier Model
-An XGBoost classifier model was trained on 799 news articles from ABC (Australia), CCTV, CNN, and Reuters.  There was a class imbalance where Reuters accounted for over half of the observations.  Based on the mean word vector of a news article the model predition breakdowns are as follows (normalized on true labels):
+An XGBoost classifier model was trained on 799 news articles from ABC (Australia), CCTV, CNN, and Reuters.  There was a class imbalance where Reuters accounted for over half of the observations.  Based on the mean word vector of a news article the model prediction breakdowns are as follows (normalized on true labels):
 
 <img src="notebooks/imgs/con_mat.png" height="200" width="275">
 
